@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
-    <PackageReference Include="Sino.Web" Version="1.1.22-beta9" />
+    <PackageReference Include="Sino.Web" Version="2.0.0-beta2" />
   </ItemGroup>
 
   <ItemGroup>

@@ -7,14 +7,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BBDA9895-DA0
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".global", ".global", "{06637624-959E-4188-88EA-40CAEE8051B8}"
 	ProjectSection(SolutionItems) = preProject
+		appveyor.yml = appveyor.yml
+		Build.ps1 = Build.ps1
 		ReadMe.md = ReadMe.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{460E75D3-5A83-4393-A04D-F9DC97532B1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sino.Extensions.MongoDB", "src\Sino.Extensions.MongoDB\Sino.Extensions.MongoDB.csproj", "{CF08CF20-3E28-4312-AC18-1EBC59883631}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sino.Extensions.MongoDB", "src\Sino.Extensions.MongoDB\Sino.Extensions.MongoDB.csproj", "{CF08CF20-3E28-4312-AC18-1EBC59883631}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "test\TestApp\TestApp.csproj", "{39189292-AC4A-4DCB-8F4C-B8F115B26598}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApp", "test\TestApp\TestApp.csproj", "{39189292-AC4A-4DCB-8F4C-B8F115B26598}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
