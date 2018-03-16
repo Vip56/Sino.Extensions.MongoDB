@@ -16,10 +16,6 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             if (string.IsNullOrEmpty(host))
                 throw new ArgumentNullException(nameof(host));
-            if (string.IsNullOrEmpty(userName))
-                throw new ArgumentNullException(nameof(userName));
-            if (string.IsNullOrEmpty(password))
-                throw new ArgumentNullException(nameof(password));
             if (string.IsNullOrEmpty(dataBase))
                 throw new ArgumentNullException(nameof(dataBase));
 
