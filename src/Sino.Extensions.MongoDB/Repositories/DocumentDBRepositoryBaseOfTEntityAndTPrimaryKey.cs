@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace Sino.Extensions.MongoDB.Repositories
 {
     public abstract class DocumentDBRepositoryBase<TEntity, TPrimaryKey> : AbpRepositoryBase<TEntity, TPrimaryKey>
-        where TEntity : class, IEntity<TPrimaryKey> , new()
+        where TEntity : class, IEntity<TPrimaryKey>, new()
     {
         protected IDocumentDBConfiguration Configuration { get; set; }
 
@@ -27,7 +27,14 @@ namespace Sino.Extensions.MongoDB.Repositories
         {
             Configuration = configuration;
             DatabaseName = configuration.DataBase;
-            Client = new MongoClient($"mongodb://{Configuration.UserName}:{Configuration.Password}@{Configuration.Host}?ssl=true");
+            if (string.IsNullOrEmpty(configuration.UserName) && string.IsNullOrEmpty(configuration.Password))
+            {
+                Client = new MongoClient($"mongodb://{Configuration.Host}?ssl=true");
+            }
+            else
+            {
+                Client = new MongoClient($"mongodb://{Configuration.UserName}:{Configuration.Password}@{Configuration.Host}?ssl=true");
+            }
             Database = Client.GetDatabase(DatabaseName);
             Collection = Database.GetCollection<TEntity>(CollectionName);
         }
@@ -80,7 +87,7 @@ namespace Sino.Extensions.MongoDB.Repositories
             }
 
             List<TEntity> items = new List<TEntity>();
-            if(query.Count == -1)
+            if (query.Count == -1)
             {
                 items = selfQuery.ToList();
                 return Task.FromResult(new Tuple<int, IList<TEntity>>(items.Count, items));
