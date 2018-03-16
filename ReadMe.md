@@ -1,5 +1,5 @@
 ## Sino.Extensions.DocumentDB
-为了提供除MySQL外其他仓储的实现版本，这里采用了Azure的DocumentDB进行了封装，其中1.x.x为采用官方SDK封装的版本，因为其在Docker存在性能问题，所以这里推荐使用版本2.x.x由MongoDB实现的仓储接口。   
+为了提供除MySQL外其他仓储的实现版本，这里采用了MongoDB进行了封装。   
 
 [![Build status](https://ci.appveyor.com/api/projects/status/3prggrna3nh5k0em?svg=true)](https://ci.appveyor.com/project/vip56/sino-extensions-mongodb)
 [![NuGet](https://img.shields.io/nuget/v/Nuget.Core.svg?style=plastic)](https://www.nuget.org/packages/Sino.Extensions.MongoDB)   
