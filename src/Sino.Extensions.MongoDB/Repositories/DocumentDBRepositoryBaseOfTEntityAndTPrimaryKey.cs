@@ -29,7 +29,7 @@ namespace Sino.Extensions.MongoDB.Repositories
             DatabaseName = configuration.DataBase;
             if (string.IsNullOrEmpty(configuration.UserName) && string.IsNullOrEmpty(configuration.Password))
             {
-                Client = new MongoClient($"mongodb://{Configuration.Host}?ssl=true");
+                Client = new MongoClient($"mongodb://{Configuration.Host}?ssl=false");
             }
             else
             {
