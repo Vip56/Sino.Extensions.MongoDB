@@ -27,6 +27,8 @@ namespace Sino.Extensions.MongoDB
         /// <summary>
         /// 列表是否需要Total（True为不需要Total这样列表会加快10ms+，默认为false）
         /// </summary>
-        public bool NoTotal { get;set;}
+        public bool NoTotal { get; set; }
+
+        public bool SSL { get; set; }
     }
 }
