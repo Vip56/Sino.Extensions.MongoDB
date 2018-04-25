@@ -33,7 +33,7 @@ namespace Sino.Extensions.MongoDB.Repositories
             }
             else
             {
-                Client = new MongoClient($"mongodb://{Configuration.UserName}:{Configuration.Password}@{Configuration.Host}?ssl=true");
+                Client = new MongoClient($"mongodb://{Configuration.UserName}:{Configuration.Password}@{Configuration.Host}?ssl={configuration.SSL}");
             }
             Database = Client.GetDatabase(DatabaseName);
             Collection = Database.GetCollection<TEntity>(CollectionName);
