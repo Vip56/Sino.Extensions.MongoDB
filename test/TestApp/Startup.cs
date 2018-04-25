@@ -26,7 +26,7 @@ namespace TestApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddDocumentDB("", "", "", "");
+            services.AddDocumentDB("192.168.1.107", "11111", "test", "admin", false, false);
             services.AddTransient<IFamilyRepository, FamilyRepository>();
         }
 
