@@ -116,7 +116,18 @@ namespace Sino.Extensions.MongoDB.Repositories
         public override async Task<TEntity> UpdateAsync(TEntity entity)
         {
             var filter = Builders<TEntity>.Filter.Eq(x => x.Id, entity.Id);
-            await Collection.ReplaceOneAsync(filter, entity);
+            //await Collection.ReplaceOneAsync(filter, entity);
+
+            var list = new List<UpdateDefinition<TEntity>>();
+            foreach (var item in entity.GetType().GetProperties())
+            {
+                if (item.GetValue(entity).IsNotNull())
+                {
+                    list.Add(Builders<TEntity>.Update.Set(item.Name, item.GetValue(entity))); //指定一个键并更新键值，若键不存在并创建。
+                }
+            }
+            var updateField = Builders<TEntity>.Update.Combine(list);
+            await Collection.UpdateOneAsync(filter, updateField);
             return entity;
         }
     }
