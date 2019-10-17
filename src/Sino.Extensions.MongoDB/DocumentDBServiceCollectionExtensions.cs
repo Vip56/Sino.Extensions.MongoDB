@@ -12,14 +12,10 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="primaryKey">访问密钥</param>
         /// <param name="database">数据库名</param>
         /// <param name="noTotal">列表是否需要Total（True为不需要Total这样列表会加快10ms+，默认为false）</param>
-        public static IServiceCollection AddDocumentDB(this IServiceCollection services, string host, string userName, string password, string dataBase, bool noTotal = false)
+        public static IServiceCollection AddDocumentDB(this IServiceCollection services, string host, string userName, string password, string dataBase, bool noTotal = false, bool ssl = true)
         {
             if (string.IsNullOrEmpty(host))
                 throw new ArgumentNullException(nameof(host));
-            if (string.IsNullOrEmpty(userName))
-                throw new ArgumentNullException(nameof(userName));
-            if (string.IsNullOrEmpty(password))
-                throw new ArgumentNullException(nameof(password));
             if (string.IsNullOrEmpty(dataBase))
                 throw new ArgumentNullException(nameof(dataBase));
 
@@ -29,7 +25,8 @@ namespace Microsoft.Extensions.DependencyInjection
                 UserName = userName,
                 Password = password,
                 DataBase = dataBase,
-                NoTotal = noTotal
+                NoTotal = noTotal,
+                SSL = ssl
             });
             return services;
         }

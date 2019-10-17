@@ -13,5 +13,7 @@ namespace Sino.Extensions.MongoDB
         string DataBase { get; set; }
 
         bool NoTotal { get; set; }
+
+        bool SSL { get; set; }
     }
 }
