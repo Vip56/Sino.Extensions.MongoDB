@@ -109,7 +109,7 @@ namespace Sino.Extensions.MongoDB.Repositories
         public override async Task<TEntity> UpdateAsync(TEntity entity)
         {
             var filter = Builders<TEntity>.Filter.Eq(x => x.Id, entity.Id);
-            await Collection.ReplaceOneAsync(filter, entity);
+            await Collection.FindOneAndReplaceAsync(filter, entity);
             return entity;
         }
     }
