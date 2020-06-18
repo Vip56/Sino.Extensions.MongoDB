@@ -41,7 +41,13 @@ namespace Sino.Extensions.MongoDB.Repositories
 
         public override Task<int> CountAsync(IQueryObject<TEntity> query)
         {
-            throw new NotImplementedException();
+            IQueryable<TEntity> selfQuery = Collection.AsQueryable();
+
+            var b = query.QueryExpression.WhereAnd();
+            selfQuery = selfQuery.Where(b);
+            var count = selfQuery.Count();
+
+            return Task.FromResult(count);
         }
 
         public override Task<TEntity> FirstOrDefaultAsync(TPrimaryKey id)
